@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalai Technology — Building software that matters</title>
+<meta name="description" content="Kalai Technology is a SaaS product company building software for the next generation. Explore our products and the iKalvi learning academy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0d14;
+    --paper: #f7f5f0;
+    --accent: #e8480c;
+    --accent2: #1a6b47;
+    --muted: #6e6c65;
+    --dim: rgba(10,13,20,0.06);
+    --border: rgba(10,13,20,0.1);
+    --radius: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 56px;
+    background: rgba(10,13,20,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--paper);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo-dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .nav-right { display: flex; gap: 12px; align-items: center; }
+
+  .nav-link {
+    font-size: 14px;
+    color: rgba(247,245,240,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 6px 12px;
+  }
+  .nav-link:hover { color: var(--paper); }
+
+  .nav-academy {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 9px 20px !important;
+    border-radius: 50px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-academy:hover { opacity: 0.85 !important; }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 160px 56px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -200px; left: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(232,72,12,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    bottom: -100px; right: 10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(26,107,71,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(247,245,240,0.4);
+    margin-bottom: 32px;
+    position: relative;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(48px, 7.5vw, 96px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -3px;
+    max-width: 900px;
+    position: relative;
+    animation: fadeUp 0.5s ease 0.1s both;
+  }
+
+  .hero h1 .accent-word {
+    color: var(--accent);
+    position: relative;
+  }
+
+  .hero h1 .dim-word { color: rgba(247,245,240,0.3); }
+
+  .hero-meta {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 80px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    animation: fadeUp 0.5s ease 0.25s both;
+    position: relative;
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: rgba(247,245,240,0.5);
+    max-width: 420px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .hero-cta-group { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+
+  .btn-hero-primary {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-hero-primary:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+
+  .btn-hero-ghost {
+    font-size: 13px;
+    color: rgba(247,245,240,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-hero-ghost:hover { color: var(--paper); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- SECTION BASE ---- */
+  section { padding: 100px 56px; }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(247,245,240,0.35);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .tag::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+
+  .section-h {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+  }
+
+  .section-p {
+    font-size: 16px;
+    color: rgba(247,245,240,0.45);
+    max-width: 480px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ---- ABOUT ---- */
+  #about {
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .value-chip {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px;
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .value-chip:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); }
+
+  .value-chip-icon { font-size: 24px; margin-bottom: 10px; }
+  .value-chip-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--paper);
+  }
+  .value-chip-text { font-size: 12px; color: rgba(247,245,240,0.4); line-height: 1.5; }
+
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .about-stat {
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .about-stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: var(--paper);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .about-stat-num span { color: var(--accent); }
+
+  .about-stat-label { font-size: 14px; color: rgba(247,245,240,0.4); }
+
+  /* ---- PRODUCTS ---- */
+  #products { border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .product-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 32px;
+    background: rgba(255,255,255,0.03);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); transform: translateY(-4px); }
+
+  .product-card.live { border-color: rgba(26,107,71,0.4); }
+  .product-card.live:hover { border-color: rgba(26,107,71,0.7); }
+
+  .product-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 50px;
+    width: fit-content;
+    margin-bottom: 24px;
+  }
+  .product-status.status-live { background: rgba(26,107,71,0.2); color: #5ec99a; }
+  .product-status.status-soon { background: rgba(232,72,12,0.15); color: #f5a07a; }
+  .product-status.status-building { background: rgba(255,255,255,0.08); color: rgba(247,245,240,0.5); }
+
+  .product-status::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .product-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .product-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    color: var(--paper);
+  }
+
+  .product-desc {
+    font-size: 14px;
+    color: rgba(247,245,240,0.45);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .product-link {
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+  .product-card:hover .product-link { gap: 10px; }
+
+  /* ---- ACADEMY CTA ---- */
+  #academy {
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .academy-banner {
+    border: 1px solid rgba(232,72,12,0.25);
+    border-radius: 24px;
+    padding: 64px;
+    background: rgba(232,72,12,0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .academy-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(232,72,12,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .academy-banner-left {}
+
+  .academy-banner-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,72,12,0.15);
+    color: #f5a07a;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .academy-banner h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+  }
+
+  .academy-banner p {
+    font-size: 15px;
+    color: rgba(247,245,240,0.5);
+    max-width: 460px;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .academy-banner-right {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .btn-visit-academy {
+    background: var(--accent);
+    color: #fff;
+    padding: 18px 44px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 4px 24px rgba(232,72,12,0.3);
+  }
+  .btn-visit-academy:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  .academy-banner-note {
+    font-size: 12px;
+    color: rgba(247,245,240,0.3);
+  }
+
+  /* ---- CONTACT ---- */
+  #contact {
+    text-align: center;
+    padding: 100px 56px;
+  }
+
+  .contact-email {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+    transition: color 0.2s;
+    letter-spacing: -0.5px;
+    margin-top: 24px;
+  }
+  .contact-email:hover { color: var(--accent); }
+
+  .contact-social {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .social-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: rgba(247,245,240,0.5);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-pill:hover { border-color: rgba(255,255,255,0.3); color: var(--paper); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 28px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(247,245,240,0.25);
+  }
+
+  footer a { color: rgba(247,245,240,0.35); text-decoration: none; }
+  footer a:hover { color: var(--paper); }
+
+  /* ---- SCROLL REVEAL ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    section { padding: 72px 24px; }
+    .hero { padding: 140px 24px 80px; }
+    .hero-meta { flex-direction: column; align-items: flex-start; gap: 32px; }
+    .hero-cta-group { align-items: flex-start; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .academy-banner { flex-direction: column; padding: 40px 28px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-right .nav-link { display: none; }
+    .hero h1 { font-size: 42px; letter-spacing: -2px; }
+    .about-values { grid-template-columns: 1fr; }
+    .contact-social { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    Kalai Technology
+  </a>
+  <div class="nav-right">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#products" class="nav-link">Products</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="https://ikalvi.in" target="_blank" class="nav-link nav-academy">iKalvi Academy ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <p class="hero-eyebrow">Kalai Technology · kalai.tech</p>
+
+  <h1>
+    Building<br>
+    software<br>
+    <span class="accent-word">that matters.</span>
+  </h1>
+
+  <div class="hero-meta">
+    <p class="hero-desc">We're a SaaS product company building tools for the next generation of creators, developers, and learners. Based in Tamil Nadu.</p>
+    <div class="hero-cta-group">
+      <a href="#products" class="btn-hero-primary">See what we're building →</a>
+      <a href="https://ikalvi.in" target="_blank" class="btn-hero-ghost">Visit iKalvi Academy ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid reveal">
+    <div>
+      <p class="tag">Who we are</p>
+      <h2 class="section-h">A product company<br>with a mission.</h2>
+      <p class="section-p" style="margin-bottom:0">Kalai Technology is a SaaS product organisation building tools that solve real problems. We started with an academy to prove what we believe — that the best way to learn software is to build it.</p>
+      <div class="about-values">
+        <div class="value-chip">
+          <div class="value-chip-icon">⚡</div>
+          <div class="value-chip-title">Product-first</div>
+          <div class="value-chip-text">We build before we talk</div>
+        </div>
+        <div class="value-chip">
+          <div class="value-chip-icon">🌱</div>
+          <div class="value-chip-title">Rooted locally</div>
+          <div class="value-chip-text">Built in Tamil Nadu, for the world</div>
+        </div>
+        <div class="value-chip">
+          <div class="value-chip-icon">🔍</div>
+          <div class="value-chip-title">Transparent</div>
+          <div class="value-chip-text">No fluff, no hype — just work</div>
+        </div>
+        <div class="value-chip">
+          <div class="value-chip-icon">📐</div>
+          <div class="value-chip-title">Intentional</div>
+          <div class="value-chip-text">Every feature earns its place</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-stat">
+        <div class="about-stat-num">01<span>.</span></div>
+        <div class="about-stat-label">Year founded · 2024</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">iKalvi<span>↗</span></div>
+        <div class="about-stat-label">First product · Learning academy live now</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">TN<span>.</span></div>
+        <div class="about-stat-label">Based in Tamil Nadu, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <p class="tag reveal">What we build</p>
+  <h2 class="section-h reveal">Our products</h2>
+  <p class="section-p reveal">We're at the start of the roadmap. iKalvi is live. More is coming.</p>
+  <div class="products-grid reveal">
+    <a href="https://ikalvi.in" target="_blank" class="product-card live">
+      <div class="product-status status-live">Live</div>
+      <div class="product-icon">🎓</div>
+      <div class="product-name">iKalvi Academy</div>
+      <p class="product-desc">A project-based internship academy for students and freshers. Build real software, earn a certificate, launch your career.</p>
+      <div class="product-link">Visit ikalvi.in →</div>
+    </a>
+    <div class="product-card">
+      <div class="product-status status-soon">Coming soon</div>
+      <div class="product-icon">🛠️</div>
+      <div class="product-name">DevKit SaaS</div>
+      <p class="product-desc">A developer productivity tool we're building in-house. Details coming soon — follow us to stay updated.</p>
+      <div class="product-link" style="color:rgba(247,245,240,0.3)">In development</div>
+    </div>
+    <div class="product-card">
+      <div class="product-status status-building">Exploring</div>
+      <div class="product-icon">📊</div>
+      <div class="product-name">Product #3</div>
+      <p class="product-desc">We're exploring a SaaS tool in the analytics/reporting space. If you have a problem you'd like us to solve — let's talk.</p>
+      <div class="product-link" style="color:rgba(247,245,240,0.3)">Stay tuned</div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY CTA -->
+<section id="academy">
+  <div class="academy-banner reveal">
+    <div class="academy-banner-left">
+      <div class="academy-banner-tag">Go-to-market · Live now</div>
+      <h3>iKalvi is where<br>we start.</h3>
+      <p>Our learning academy is the first product — and it's already open for enrollment. Freshers and students build real projects, get mentored, and earn internship certificates.</p>
+    </div>
+    <div class="academy-banner-right">
+      <a href="https://ikalvi.in" target="_blank" class="btn-visit-academy">Visit iKalvi.in →</a>
+      <span class="academy-banner-note">Powered by Kalai Technology</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <p class="tag" style="justify-content:center">Get in touch</p>
+  <h2 class="section-h">Let's talk.</h2>
+  <p class="section-p" style="margin:12px auto 0; color:rgba(247,245,240,0.35); text-align:center">Partnerships, investor inquiries, or just want to say hi.</p>
+  <br>
+  <a href="mailto:hello@kalai.tech" class="contact-email">hello@kalai.tech</a>
+  <div class="contact-social">
+    <a href="https://linkedin.com" target="_blank" class="social-pill">🔗 LinkedIn</a>
+    <a href="https://twitter.com" target="_blank" class="social-pill">𝕏 Twitter / X</a>
+    <a href="https://github.com" target="_blank" class="social-pill">⌥ GitHub</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2024 Kalai Technology · kalai.tech</span>
+  <div style="display:flex;gap:24px">
+    <a href="https://ikalvi.in" target="_blank">iKalvi Academy</a>
+    <a href="mailto:hello@kalai.tech">Contact</a>
+  </div>
+  <span>Built in Tamil Nadu 🇮🇳</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -207,7 +207,38 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
+  
+  /* ---- TECH STRIP ---- */
+  .tech-strip {
+    background: var(--ink); padding: 18px 56px;
+    display: flex; align-items: center; gap: 0;
+    overflow: hidden;
+  }
+  .tech-strip-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(247,245,240,0.3);
+    white-space: nowrap; margin-right: 36px; flex-shrink: 0;
+  }
+  .tech-strip-scroll { overflow: hidden; flex: 1; }
+  .tech-strip-inner {
+    display: inline-flex; gap: 0;
+    animation: marquee 28s linear infinite;
+  }
+  .tech-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 0 28px;
+    font-size: 12px; font-weight: 500;
+    color: rgba(247,245,240,0.45);
+    white-space: nowrap; letter-spacing: 0.3px;
+  }
+  .tech-pill-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
   /* ---- SECTION BASE ---- */
   section { padding: 100px 56px; }
 
@@ -308,6 +339,44 @@
 
   .about-stat-label { font-size: 14px; color: rgba(10,13,20,0.4); }
 
+  /* ---- CAPABILITIES ---- */
+  #capabilities { background: var(--paper); }
+ 
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 48px;
+    background: rgba(10,13,20,0.08);
+    border: 1px solid rgba(10,13,20,0.08);
+    border-radius: 20px; overflow: hidden;
+  }
+  .cap-card {
+    background: var(--paper); padding: 36px 32px;
+    transition: background 0.2s;
+  }
+  .cap-card:hover { background: #fff; }
+  .cap-num {
+    font-family: 'Syne', sans-serif; font-size: 11px;
+    font-weight: 700; color: var(--accent); letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .cap-icon {
+    font-size: 28px; margin-bottom: 16px; display: block;
+  }
+  .cap-title {
+    font-family: 'Syne', sans-serif; font-size: 18px;
+    font-weight: 700; margin-bottom: 10px; color: var(--ink);
+  }
+  .cap-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+  .cap-tags {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px;
+  }
+  .cap-tag {
+    font-size: 11px; font-weight: 500;
+    background: rgba(10,13,20,0.06); color: rgba(10,13,20,0.55);
+    padding: 4px 10px; border-radius: 50px; letter-spacing: 0.3px;
+  }
+  
   /* ---- PRODUCTS ---- */
   #products { background: var(--paper); border-bottom: 1px solid rgba(10,13,20,0.07); }
 

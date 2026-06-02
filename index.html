@@ -518,6 +518,43 @@
     color: var(--paper); line-height: 1.4; position: relative;
   }
 
+    /* ---- OPEN SOURCE / BUILD IN PUBLIC ---- */
+  #build-in-public {
+    background: var(--ink); padding: 80px 56px;
+  }
+  .bip-inner {
+    display: flex; justify-content: space-between;
+    align-items: center; gap: 60px;
+  }
+  .bip-left { max-width: 540px; }
+  .bip-tag {
+    font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+    text-transform: uppercase; color: rgba(247,245,240,0.3);
+    margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
+  }
+  .bip-tag::before { content: ''; width: 14px; height: 1px; background: var(--accent); }
+  .bip-h {
+    font-family: 'Syne', sans-serif; font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800; line-height: 1.1; letter-spacing: -1.5px;
+    color: var(--paper); margin-bottom: 16px;
+  }
+  .bip-p { font-size: 16px; color: rgba(247,245,240,0.45); font-weight: 300; line-height: 1.7; }
+  .bip-right { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+  .bip-stat {
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;
+    padding: 20px 28px; min-width: 200px;
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.2s;
+  }
+  .bip-stat:hover { border-color: rgba(255,255,255,0.16); }
+  .bip-stat-val {
+    font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800;
+    color: var(--paper); letter-spacing: -1px; line-height: 1;
+    margin-bottom: 4px;
+  }
+  .bip-stat-val span { color: var(--accent); }
+  .bip-stat-label { font-size: 12px; color: rgba(247,245,240,0.35); }
+
   /* ---- ACADEMY CTA ---- */
   #academy {
     background: rgba(255,255,255,0.02);
@@ -610,32 +647,24 @@
   }
 
   /* ---- CONTACT ---- */
-  #contact {
-    background: #edeae0;
-    text-align: center;
-    padding: 100px 56px;
+  #contact { text-align: center; }
+  .contact-details {
+    display: flex; align-items: center; justify-content: center;
+    gap: 20px; flex-wrap: wrap; margin-top: 20px;
   }
-
-  .contact-email {
-    display: inline-block;
+  .contact-divider {
+    color: rgba(10,13,20,0.2); font-size: 24px; font-weight: 300;
+  }
+  .contact-email, .contact-phone {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(20px, 3vw, 32px);
-    font-weight: 700;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 4px;
-    transition: color 0.2s;
-    letter-spacing: -0.5px;
-    margin-top: 24px;
+    font-size: clamp(18px, 2.5vw, 28px); font-weight: 700;
+    color: var(--ink); text-decoration: none;
+    border-bottom: 2px solid var(--accent); padding-bottom: 4px;
+    transition: color 0.2s; letter-spacing: -0.5px;
   }
-  .contact-email:hover { color: var(--accent); }
-
+  .contact-email:hover, .contact-phone:hover { color: var(--accent); }
   .contact-social {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 40px;
+    display: flex; justify-content: center; gap: 12px; margin-top: 36px;
   }
 
   .social-pill {
@@ -1024,7 +1053,11 @@
   <h2 class="section-h">Let's talk.</h2>
   <p class="section-p" style="margin:12px auto 0; color:rgba(10,13,20,0.4); text-align:center">Project enquiries, partnerships, or just want to talk software.</p>
   <br>
-  <a href="mailto:hello@kalai.tech" class="contact-email">hello@kalai.tech</a>
+  <div class="contact-details">
+    <a href="mailto:hello@kalai.tech" class="contact-email">hello@kalai.tech</a>
+    <span class="contact-divider">&middot;</span>
+    <a href="tel:+918939978658" class="contact-phone">+91 89399 78658</a>
+  </div>
   <!-- <div class="contact-social">
     <a href="https://linkedin.com" target="_blank" class="social-pill">🔗 LinkedIn</a>
     <a href="https://twitter.com" target="_blank" class="social-pill">𝕏 Twitter / X</a>
